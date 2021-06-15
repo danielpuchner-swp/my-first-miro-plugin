@@ -23,7 +23,7 @@ miro.onReady(() => {
                 onClick: () => {
                     authorize();
 
-                    miro.board.ui.openLeftSidebar('/my-first-miro-plugin/sidebar.html')
+                    miro.board.ui.openLeftSidebar('/my-first-miro-plugin/wordCount.html')
                 },
             },
         },

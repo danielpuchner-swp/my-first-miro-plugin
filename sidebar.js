@@ -8,6 +8,12 @@ miro.onReady(() => {
 const tipElement = document.getElementById('tip')
 const widgetTextElement = document.getElementById('widget-text')
 
+
+
+function parseTitle(){
+
+}
+
 async function getWidget() {
     // Get selected widgets
     let widgets = await miro.board.selection.get()
