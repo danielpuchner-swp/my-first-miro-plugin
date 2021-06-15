@@ -4,14 +4,20 @@ function normalizeTitle(text) {
 
 function addToWordCounts(element) {
     var text = normalizeTitle(element['text'])
-    if (text in tokens) {
-        tokens[text].elements.push(element)
-        tokens[text].count++;
-    } else {
-        let newElement= new Object();
-        newElement.elements = [element];
-        newElement.count = 1;
-        tokens[text] = newElement;
+    if(text=='')
+        return;
+
+    for(const part in text){
+        if (part in tokens) {
+            tokens[part].elements.push(element)
+            tokens[part].count++;
+        } else {
+            let newElement= new Object();
+            newElement.elements = [element];
+            newElement.count = 1;
+            newElement.text= part;
+            tokens[part] = newElement;
+        }
     }
 }
 
@@ -23,7 +29,11 @@ async function calculateWordCounts() {
     for (const widget of widgets) {
         addToWordCounts(widget)
     }
-    tokens.sort(a => a.count);
+    //tokens.sort(a => a.count);
+    let content = document.getElementById('content')
+    for(const token in tokens){
+        content.innerHTML = content.innerHTML+ "<span>"+ token.text + "("+token.count+")</span>"
+    }
 }
 
 miro.onReady(() => {
