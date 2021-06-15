@@ -8,8 +8,10 @@ function addToWordCounts(element) {
         tokens[text].elements.push(element)
         tokens[text].count++;
     } else {
-        tokens[text].elements = [element];
-        tokens[text].count = 1;
+        let newElement= new Object();
+        newElement.elements = [element];
+        newElement.count = 1;
+        tokens[text] = newElement;
     }
 }
 
