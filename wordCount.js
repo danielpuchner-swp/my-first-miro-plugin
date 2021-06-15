@@ -46,14 +46,13 @@ function displayTokens(tok){
         inputElement.className="wordcount";
 
         inputElement.addEventListener("click", function () {
-            highlight(token.name);
+            highlight(token.text);
         });
         document.body.appendChild(inputElement)
     }
 }
 
 function highlight(tokenName) {
-
     console.log(tokenName)
 }
 
