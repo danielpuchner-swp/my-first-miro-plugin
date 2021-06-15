@@ -53,7 +53,7 @@ function displayTokens(tok){
 function highlight(tokenName) {
     let ids= tokens[tokenName].elements.map(a=> a["id"]);
     miro.board.selection.clear();
-    miro.board.selection.select(ids);
+    miro.board.selection.selectWidgets(ids);
 }
 
 miro.onReady(() => {
