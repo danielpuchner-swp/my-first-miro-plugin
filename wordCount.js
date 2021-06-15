@@ -18,7 +18,7 @@ var tokens = new Object();
 async function calculateWordCounts() {
     let widgets = await miro.board.getAllObjects();
     tokens = new Object();
-    for (let widget in widgets) {
+    for (const widget of widgets) {
         addToWordCounts(widget)
     }
     tokens.sort(a => a.count);
