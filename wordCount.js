@@ -24,8 +24,6 @@ function addToWordCounts(element) {
 
 var tokens = new Object();
 
-
-
 async function calculateWordCounts() {
     let widgets = await miro.board.getAllObjects();
     tokens = new Object();
@@ -53,7 +51,9 @@ function displayTokens(tok){
 }
 
 function highlight(tokenName) {
-    console.log(tokenName)
+    let ids= tokens[tokenName].elements.map(a=> a["id"]);
+    miro.board.selection.clear();
+    miro.board.selection.select(ids);
 }
 
 miro.onReady(() => {
