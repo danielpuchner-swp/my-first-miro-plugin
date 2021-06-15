@@ -1,15 +1,15 @@
-function normalizeTitle(title) {
-    return title.replace('</p>', '').replace('<p>', '').toLowerCase();
+function normalizeTitle(text) {
+    return text.replace('</p>', '').replace('<p>', '').toLowerCase();
 }
 
 function addToWordCounts(element) {
-    var title = normalizeTitle(element['title'])
-    if (title in tokens) {
-        tokens[title].elements.push(element)
-        tokens[title].count++;
+    var text = normalizeTitle(element['text'])
+    if (text in tokens) {
+        tokens[text].elements.push(element)
+        tokens[text].count++;
     } else {
-        tokens[title].elements = [element];
-        tokens[title].count = 1;
+        tokens[text].elements = [element];
+        tokens[text].count = 1;
     }
 }
 
