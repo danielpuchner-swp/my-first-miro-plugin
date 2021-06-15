@@ -25,15 +25,13 @@ function addToWordCounts(element) {
 var tokens = new Object();
 
 async function calculateWordCounts() {
-    let widgets = await miro.board.getAllObjects();
+    let widgets = await miro.board.widgets.stickers.get()
     tokens = new Object();
     for (const widget of widgets) {
         addToWordCounts(widget)
     }
-    //tokens.sort(a => a.count);
 
     displayTokens(tokens);
-
 }
 function displayTokens(tok){
     let content = document.getElementById('content');
