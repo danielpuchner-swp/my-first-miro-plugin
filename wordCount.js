@@ -45,7 +45,7 @@ function displayTokens(tok){
         inputElement.addEventListener("click", function () {
             highlight(token.text);
         });
-        document.body.appendChild(inputElement)
+        content.appendChild(inputElement)
     }
 }
 
