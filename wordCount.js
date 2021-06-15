@@ -24,10 +24,7 @@ function addToWordCounts(element) {
 
 var tokens = new Object();
 
-function highlight(event, tokenName) {
-    console.log(event)
-    console.log(tokenName)
-}
+
 
 async function calculateWordCounts() {
     let widgets = await miro.board.getAllObjects();
@@ -36,20 +33,28 @@ async function calculateWordCounts() {
         addToWordCounts(widget)
     }
     //tokens.sort(a => a.count);
-    let content = document.getElementById('content')
-    for (const token of Object.values(tokens)) {
-        var inputElement = document.createElement('span');
+
+    displayTokens(tokens);
+
+}
+function displayTokens(tok){
+    let content = document.getElementById('content');
+    for (const token of Object.values(tok))
+    {
+        let inputElement = document.createElement('span');
         inputElement.innerHTML = token.text + "(" + token.count + ")";
-        inputElement.className='wordcount'
-        inputElement.addEventListener('click', function () {
-            let name=token.name
-            highlight(name);
+        inputElement.className="wordcount";
+
+        inputElement.addEventListener("click", function () {
+            highlight(token.name);
         });
-
-        ​document.body.appendChild(inputElement);​
-
-        content.innerHTML = content.innerHTML + "<span class='wordcount' onclick='highlight()'>" + token.text + "(" + token.count + ")</span>"
+        document.body.appendChild(inputElement)
     }
+}
+
+function highlight(tokenName) {
+
+    console.log(tokenName)
 }
 
 miro.onReady(() => {
