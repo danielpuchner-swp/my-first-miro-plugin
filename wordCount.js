@@ -31,7 +31,7 @@ async function calculateWordCounts() {
     }
     //tokens.sort(a => a.count);
     let content = document.getElementById('content')
-    for(const token of Object.entries(tokens)){
+    for(const token of Object.values(tokens)){
         content.innerHTML = content.innerHTML+ "<span>"+ token.text + "("+token.count+")</span>"
     }
 }
