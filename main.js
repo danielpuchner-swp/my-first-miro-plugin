@@ -9,7 +9,7 @@ miro.onReady(() => {
                 svgIcon: icon,
                 positionPriority: 1,
                 onClick: () => {
-                    miro.board.ui.openLeftSidebar('sidebar.html')
+                    miro.board.ui.openLeftSidebar('./sidebar.html')
                 },
             },
         },
