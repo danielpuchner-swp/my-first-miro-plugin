@@ -7,7 +7,8 @@ function addToWordCounts(element) {
     if(text=='')
         return;
 
-    for(const part in text){
+    let parts = text.split(' ');
+    for(const part of parts){
         if (part in tokens) {
             tokens[part].elements.push(element)
             tokens[part].count++;
