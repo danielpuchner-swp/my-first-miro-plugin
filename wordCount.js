@@ -60,3 +60,28 @@ miro.onReady(() => {
     //miro.addListener(miro.enums.event.SELECTION_UPDATED, getWidget)
     calculateWordCounts()
 })
+
+
+// ---------------
+// try out events
+// ---------------
+//
+var eventTypes  = [
+"SELECTION_UPDATED" , 
+"WIDGETS_CREATED" , "WIDGETS_DELETED" , "WIDGETS_TRANSFORMATION_UPDATED" , 
+// "ESC_PRESSED" , 
+// "ALL_WIDGETS_LOADED" , 
+"COMMENT_CREATED" , 
+// "CANVAS_CLICKED" , 
+"DATA_BROADCASTED" , 
+// "RUNTIME_STATE_UPDATED" , 
+"METADATA_CHANGED" , 
+// "ONLINE_USERS_CHANGED"
+];
+function handleSelectionUpdated(event) {
+  console.log(event)
+}
+eventTypes.forEach(e => 
+  miro.addListener(  e, handleSelectionUpdated)
+)
+
